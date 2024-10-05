@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 //Middleware
 app.use(bodyParser.json());
@@ -29,7 +29,7 @@ db.connect((err) => {
 
 
 app.get("/", (req, res) => {
-    res.send("Hello Worlds");
+    ;
 })
 
 //create a new message
@@ -45,6 +45,6 @@ app.post('/message', (req, res)=> {
     });
 })
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log("Server is running on port 3000");
 });
