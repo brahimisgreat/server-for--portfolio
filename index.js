@@ -4,14 +4,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { process } = require('ipaddr.js');
 
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 //Middleware
 app.use(bodyParser.json());
 app.use(cors());
-
-
+app.use(express.json());
+app.set("port", process.env.PORT || 5000);
 
 //Database Connection
 const db = mysql.createConnection({
