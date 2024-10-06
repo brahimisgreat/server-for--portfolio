@@ -2,7 +2,6 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { process } = require('ipaddr.js');
 
 
 const app = express();
@@ -22,7 +21,7 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
     if (err) {
-        throw err;
+        console.error('Error connecting to the database: ' + err.stack);
     }
     console.log('Connected to the database');
 });
