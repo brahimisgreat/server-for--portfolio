@@ -12,7 +12,6 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-app.set("port", process.env.PORT || 5000);
 
 //Database Connection
 const db = mysql.createConnection({
@@ -47,6 +46,6 @@ app.post('/message', (req, res)=> {
     });
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log("Server is running on port " + port);
 });
