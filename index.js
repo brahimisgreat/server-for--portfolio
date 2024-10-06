@@ -2,9 +2,10 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { process } = require('ipaddr.js');
 
 const app = express();
-const port = 3306;
+const port = process.env.PORT || 5000;
 
 //Middleware
 app.use(bodyParser.json());
